@@ -1,0 +1,87 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>随机名字点名</title>
+</head>
+
+<style>
+	body{background-color: #212121}
+	.main{
+		width: 600px;
+		height: 576px;
+		background:url('img/bg.png');
+		margin: 80px auto;
+	}
+	.text{
+		width: 180px;
+		height: 100px;
+		color: #fff;
+		font-weight:bold;
+		font-size: 58px;
+		margin:110px 380px auto;
+		text-align: center;
+		cursor: pointer;
+	}
+	.button{
+		width: 180px;
+		height: 100px;
+		color: #fff;
+		font-weight:bold;
+		font-size: 58px;
+		position: relative;
+		left: 50px;
+		top: 210px;
+		text-align: center;
+		cursor: pointer;
+		/*background: #666;*/
+	}
+	.name{
+		position: relative;
+		/*background: #999;*/
+		left: 140px;
+		top: 120px;
+		width: 280px;
+		height: 100px;
+		color:#9fc;
+		font-weight:bold;
+		font-size: 58px;
+		text-align: center;
+	}
+</style>
+
+<script src="js/jquery.js"></script>
+<script src="js/jquery-migrate-1.2.1.min.js"></script>
+
+<body>
+
+<div class="main">
+	<div class="button"><span>开始</span></div>
+	<div class="text">点名</div>
+	<div class="name"><span id='ko'>点名</span></div>
+</div>
+
+<script>
+ names=['曹家宝','曾婕妤','陈楠','陈艳随','陈宇杰','陈雨琪','丁静晗','方宇翔','高彦卓','高妤霏','高语欣','郭璇','李睿','李祥坤','林宸阳','林凤婷','林家豪','林锦怡','林俊衡','林可欣','林睿峰','林韶涵','林绍政','林思语','林砚泽','林艺勤','林宇炫','林羽晞','林雨欣','林煜杰','刘祺','刘祥','念舒婷','念翊宣','彭永鑫','施文号','施小妍','吴鸿轩','39','肖镇国','薛炜强','薛怡凡','颜冰洁','杨军','杨娉婧','游思晨','俞航','周屁股','周彦泽','庄艺琴'];
+ $('.button').toggle(
+	function(){
+		//alert(names.length);
+	$(this).css({'color':'#f00'}).html('停止');
+	ydm=setInterval(function(){
+	index=Math.floor(Math.random()*names.length);
+	val=names[index];
+	$('#ko').css({'color':'#9fc'}).html(val);
+	},50)},
+	function(){
+		$(this).css({'color':'#fff'}).html('开始');
+		$('#ko').css({'color':'#f00'});
+		clearInterval(ydm);
+	}
+ );
+	
+</script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';color:#ffffff">
+</div>
+</body>
+</html>
